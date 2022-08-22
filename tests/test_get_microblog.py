@@ -2,7 +2,6 @@ import dataclasses
 
 import allure
 import pytest
-import requests
 from assertpy import soft_assertions
 from requests import Response
 
@@ -12,7 +11,7 @@ from steps.mircoblog import MicroblogApiSteps
 
 
 @allure.story("Microblog functionality")
-class TestGetMicroblog():
+class TestGetMicroblog:
     @pytest.mark.smoke
     @allure.title("Check get microblog positive")
     def test_get_microblog_ok(self):
@@ -35,7 +34,7 @@ class TestGetMicroblog():
             r: Response = api.get_microblog()
             assert r.status_code == 200
             json_obj = r.json()
-            json_obj_last = json_obj[- 1]
+            json_obj_last = json_obj[-1]
             Microblog(**json_obj_last)
 
             with soft_assertions():
@@ -45,4 +44,3 @@ class TestGetMicroblog():
                 assert json_obj_last["owner"] == data["owner"]
                 assert json_obj_last["id"] == id
             # добавить на текущую дату
-

@@ -3,7 +3,6 @@ from dataclasses import asdict
 
 import allure
 import pytest
-import requests
 from assertpy import soft_assertions
 from requests import Response
 
@@ -13,7 +12,7 @@ from steps.mircoblog import MicroblogApiSteps
 
 
 @allure.story("Microblog functionality")
-class TestCreateMicroblog():
+class TestCreateMicroblog:
     @pytest.mark.smoke
     @allure.title("Check create microblog positive")
     def test_create_microblog_ok(self):
@@ -42,7 +41,7 @@ class TestCreateMicroblog():
         with soft_assertions():
             assert isinstance(json_obj, dict)
             assert "detail" in json_obj
-            assert json_obj["detail"][0]["loc"]==["body",missing_param]
+            assert json_obj["detail"][0]["loc"] == ["body", missing_param]
             assert json_obj["detail"][0]["msg"] == "field required"
             assert json_obj["detail"][0]["type"] == "value_error.missing"
 
@@ -54,33 +53,11 @@ class TestCreateMicroblog():
         assert r.status_code == 422
         json_obj = r.json()
         assert isinstance(json_obj, dict)
-        responce ={
-    "detail": [
-        {
-            "loc": [
-                "body",
-                "title"
-            ],
-            "msg": "field required",
-            "type": "value_error.missing"
-        },
-        {
-            "loc": [
-                "body",
-                "text"
-            ],
-            "msg": "field required",
-            "type": "value_error.missing"
-        },
-        {
-            "loc": [
-                "body",
-                "owner"
-            ],
-            "msg": "field required",
-            "type": "value_error.missing"
+        responce = {
+            "detail": [
+                {"loc": ["body", "title"], "msg": "field required", "type": "value_error.missing"},
+                {"loc": ["body", "text"], "msg": "field required", "type": "value_error.missing"},
+                {"loc": ["body", "owner"], "msg": "field required", "type": "value_error.missing"},
+            ]
         }
-    ]
-}
         assert json_obj == responce
-

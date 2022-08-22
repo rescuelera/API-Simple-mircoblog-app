@@ -10,12 +10,12 @@ class UsersApiSteps:
     _user_by_id_endpoint = "/user/{user_id}"
 
     @allure.step(f" GET{_user_endpoint}")
-    def get_user(self) ->Response:
+    def get_user(self) -> Response:
         r: Response = get(f"{API_HOST}{self._user_endpoint}")
         return r
 
     @allure.step(f" POST{_user_endpoint}")
-    def post_user(self, body: dict) ->Response:
+    def post_user(self, body: dict) -> Response:
         r: Response = requests.post(f"{API_HOST}{self._user_endpoint}", json=body)
         return r
 

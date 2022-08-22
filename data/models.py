@@ -1,7 +1,6 @@
 from dataclasses import field
-from typing import Optional
-from faker import Faker
 
+from faker import Faker
 from pydantic.dataclasses import dataclass
 
 fake = Faker()
@@ -16,6 +15,6 @@ class CreateMicroblogBody:
 
 @dataclass
 class CreateUserBody:
-    name: str= field(default_factory=lambda: fake.pystr(12))
+    name: str = field(default_factory=lambda: fake.pystr(12))
     email: str = field(default_factory=lambda: fake.email(domain="yopmail.com"))
     password: str = field(default_factory=lambda: fake.password(12, special_chars=True))

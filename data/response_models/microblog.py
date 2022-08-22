@@ -12,4 +12,3 @@ class Microblog(StrictBaseModel):
     owner: StrictInt
     id: StrictInt
     date: datetime
-

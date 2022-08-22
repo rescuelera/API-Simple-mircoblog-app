@@ -1,6 +1,4 @@
-from datetime import datetime
-
-from pydantic import StrictInt, StrictStr, StrictBool
+from pydantic import StrictBool, StrictInt, StrictStr
 
 from data.response_models.common_models import StrictBaseModel
 
@@ -12,5 +10,3 @@ class User(StrictBaseModel):
     is_admin: StrictBool
     id: StrictInt
     is_active: StrictBool
-
-
