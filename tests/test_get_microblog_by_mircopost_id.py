@@ -8,7 +8,7 @@ from requests import Response
 from data.models import CreateMicroblogBody
 from data.response_models.microblog import Microblog
 from steps.mircoblog import MicroblogApiSteps
-from user_data import INVALID_ID, RESPONCE_MICROPOST_ID_WITH_INVALID_UID
+from user_data import INVALID_ID, RESPONSE_MICROPOST_ID_WITH_INVALID_UID
 
 
 @allure.story("Microblog functionality")
@@ -82,4 +82,4 @@ class TestGetMicroblogByMicropostid:
         r: Response = api.get_microblog_by_micropost_id(micropost_id=INVALID_ID)
         assert r.status_code == 422
         json_obj = r.json()
-        assert json_obj == RESPONCE_MICROPOST_ID_WITH_INVALID_UID
+        assert json_obj == RESPONSE_MICROPOST_ID_WITH_INVALID_UID

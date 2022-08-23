@@ -8,7 +8,7 @@ from requests import Response
 from data.models import CreateUserBody
 from data.response_models.user import User
 from steps.user import UsersApiSteps
-from user_data import INVALID_ID, RESPONCE_USER_ID_WITH_INVALID_UID
+from user_data import INVALID_ID, RESPONSE_USER_ID_WITH_INVALID_UID
 
 
 @allure.story("User functionality")
@@ -22,7 +22,6 @@ class TestGetUserByUserId:
             r: Response = api.post_user(body=data)
             assert r.status_code == 200
             json_obj = r.json()
-            user_id = json_obj["id"]
             with soft_assertions():
                 assert isinstance(json_obj, dict)
                 assert json_obj["name"] == data["name"]
@@ -84,4 +83,4 @@ class TestGetUserByUserId:
         json_obj = r.json()
         with soft_assertions():
             assert r.status_code == 422
-            assert json_obj == RESPONCE_USER_ID_WITH_INVALID_UID
+            assert json_obj == RESPONSE_USER_ID_WITH_INVALID_UID

@@ -14,10 +14,9 @@ from steps.user import UsersApiSteps
 class TestCreateUser:
     @pytest.mark.smoke
     @allure.title("Check create user positive")
-    def test_create_user_ok(self):
+    def test_create_user_ok(self, user_api):
         data = dataclasses.asdict(CreateUserBody())
-        api = UsersApiSteps()
-        r: Response = api.post_user(body=data)
+        r: Response = user_api.post_user(body=data)
         assert r.status_code == 200
         json_obj = r.json()
         User(**json_obj)
@@ -52,11 +51,11 @@ class TestCreateUser:
         assert r.status_code == 422
         json_obj = r.json()
         assert isinstance(json_obj, dict)
-        responce = {
+        response = {
             "detail": [
                 {"loc": ["body", "name"], "msg": "field required", "type": "value_error.missing"},
                 {"loc": ["body", "email"], "msg": "field required", "type": "value_error.missing"},
                 {"loc": ["body", "password"], "msg": "field required", "type": "value_error.missing"},
             ]
         }
-        assert json_obj == responce
+        assert json_obj == response

@@ -53,11 +53,11 @@ class TestCreateMicroblog:
         assert r.status_code == 422
         json_obj = r.json()
         assert isinstance(json_obj, dict)
-        responce = {
+        response = {
             "detail": [
                 {"loc": ["body", "title"], "msg": "field required", "type": "value_error.missing"},
                 {"loc": ["body", "text"], "msg": "field required", "type": "value_error.missing"},
                 {"loc": ["body", "owner"], "msg": "field required", "type": "value_error.missing"},
             ]
         }
-        assert json_obj == responce
+        assert json_obj == response
