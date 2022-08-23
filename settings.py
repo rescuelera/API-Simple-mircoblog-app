@@ -1,1 +1,9 @@
-API_HOST = "http://192.168.88.185:8000"
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_HOST = os.getenv("API_HOST", None)
+if API_HOST is None:
+    raise ValueError("API_HOST is not set")
