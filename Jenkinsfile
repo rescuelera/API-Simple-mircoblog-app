@@ -4,7 +4,7 @@ node{
         sh 'mkdir -p ${BUILD_ID}'
     }
     stage("Run tests"){
-        withDockerContainer(args: '-u root -e API_HOST=${API_HOST}', image: 'python:3.9') {
+        withDockerContainer(args: '-u root -e API_HOST='+API_HOST+'', image: 'python:3.9') {
             sh 'git clone https://github.com/rescuelera/API-Simple-mircoblog-app.git ./${BUILD_ID}/API-Simple-mircoblog-app'
             sh 'ls -las ./${BUILD_ID}/API-Simple-mircoblog-app'
             sh 'cd ./${BUILD_ID}/API-Simple-mircoblog-app && pip install -r requirements.txt'
