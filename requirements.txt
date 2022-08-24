@@ -1,0 +1,9 @@
+pytest
+requests
+pydantic
+faker
+allure-pytest
+assertpy
+pytest-xdist==2.5.0
+pre-commit==2.20.0
+python-dotenv

@@ -1,0 +1,7 @@
+[flake8]
+exclude =
+    .git,
+    __pycache__,
+import-order-style = pep8
+max-line-length = 150
+extend-ignore = E203
