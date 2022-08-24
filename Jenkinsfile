@@ -8,7 +8,7 @@ node{
             sh 'git clone https://github.com/rescuelera/API-Simple-mircoblog-app.git ./${BUILD_ID}/API-Simple-mircoblog-app'
             sh 'ls -las ./${BUILD_ID}/API-Simple-mircoblog-app'
             sh 'cd ./${BUILD_ID}/API-Simple-mircoblog-app && pip install -r requirements.txt'
-            sh 'cd ./${BUILD_ID}/API-Simple-mircoblog-app && pytest tests --alluredir=allure-results || true'
+            sh 'cd ./${BUILD_ID}/API-Simple-mircoblog-app && pytest tests || true'
             sh 'cd ./${BUILD_ID} && mkdir root_results'
             sh 'cp -r ./${BUILD_ID}/API-Simple-mircoblog-app/allure-results ./${BUILD_ID}/root_results'
             sh 'rm -rf ./${BUILD_ID}/API-Simple-mircoblog-app'
