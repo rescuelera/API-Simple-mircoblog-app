@@ -1,7 +1,7 @@
 pytest==7.1.2
 requests
 pydantic
-faker
+faker==14.1.0
 allure-pytest
 assertpy
 pytest-xdist==2.5.0
