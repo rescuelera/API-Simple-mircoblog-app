@@ -1,9 +1,8 @@
 pytest==7.1.2
 requests==2.28.1
-pydantic
+pydantic==1.9.2
 faker==14.1.0
-allure-pytest
-assertpy
+allure-pytest==2.9.45
 pytest-xdist==2.5.0
 pre-commit==2.20.0
-python-dotenv
+python-dotenv==0.20.0

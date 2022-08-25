@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 .idea/
 allure_results/
+tests/allure-results/01a481a3-7b37-4a8e-b7f3-1169afad4959-result.json
+tests/allure-results/

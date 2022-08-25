@@ -24,10 +24,13 @@ to run tests locally: `pytest`
 
 black + flake8 + isort are used to keep the code nice and readable.
 
-To install pre-commit run:  
+To setup pre-commit run:  
 `pre-commit install`
 
 Everything is set for now!
 
 If for some reason you really need to commit something that won't pass linters in CI, uninstall pre-commit using:  
-`pre-commit uninstall
+`pre-commit uninstall`
+
+Run pre-commit checks manually
+`pre-commit run --all-files`
