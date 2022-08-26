@@ -6,3 +6,4 @@ allure-pytest==2.9.45
 pytest-xdist==2.5.0
 pre-commit==2.20.0
 python-dotenv==0.20.0
+assertpy==1.1
